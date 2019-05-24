@@ -20,7 +20,7 @@ class CreateClientesTable extends Migration
             $table->string('rg');
             $table->string('cpf');
             $table->date('data_nascimento');
-            $table->string('imagem');
+            $table->string('imagem')->nullable();
             $table->string('endereco');
             $table->string('telefone_1');
             $table->string('telefone_2');
