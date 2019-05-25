@@ -20,7 +20,7 @@
   @endif
 
   <table class="table table-bordered">
-    <tr>
+    <tr style="background-color: black; color:white;">
       <th>Nº</th>
       <th>NOME</th>
       <th>USUARIO</th>
@@ -31,7 +31,7 @@
       <th>TELEFONE 1</th>
       <th>TELEFONE 2</th>
       <th>CIDADE</th>
-      <th width="300px">AÇÕES</th>
+      <th colspan="3" class="text-center">AÇÕES</th>
     </tr>
 
     @foreach ($clientes as $cliente)
@@ -46,14 +46,14 @@
         <td>{{ $cliente->telefone_1 }}</td>
         <td>{{ $cliente->telefone_2 }}</td>
         <td>{{ $cliente->cidade_id }}</td>
+        <td><a class="btn btn-xs btn-info" href="{{ route('clientes.show', $cliente->id) }}">MOSTRAR</a></td>
+        <td><a class="btn btn-xs btn-primary" href="{{ route('clientes.edit', $cliente->id) }}">EDITAR</a></td>
         <td>
-          <a class="btn btn-xs btn-info" href="{{ route('clientes.show', $cliente->id) }}">MOSTRAR</a>
-          <a class="btn btn-xs btn-primary" href="{{ route('clientes.edit', $cliente->id) }}">EDITAR</a>
-          <form action="{{ route('clientes.destroy', $cliente->id) }}" method="DELETE">
+            <form action="{{ route('clientes.destroy', $cliente->id) }}" method="DELETE">
             @csrf
-
+            @method('DELETE')
             <button class="btn btn-xs btn-danger" type="submit">DELETAR</button>
-        </form>
+            </form>
         </td>
       </tr>
     @endforeach

@@ -56,7 +56,7 @@ class clienteController extends Controller
 
     public function edit($id)
     {
-        $post = Post::find($id);
+        $cliente = Cliente::find($id);
         return view('clientes.edit', compact('cliente'));
     }
 
@@ -80,7 +80,8 @@ class clienteController extends Controller
 
     public function destroy($id)
     {
-        Cliente::find($id)->delete();
+        $cliente = Cliente::find($id);
+        $cliente->delete();
         return redirect()->route('clientes.index')->with('success','Post deleted successfully');
     }
 }
