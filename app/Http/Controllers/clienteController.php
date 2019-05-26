@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Cliente;
+use App\Cidade;
+use App\Uf;
 
 class clienteController extends Controller
 {
@@ -11,11 +13,14 @@ class clienteController extends Controller
     public function index()
     {
         $clientes = Cliente::latest()->paginate(5);
-        return view('clientes.index', compact('clientes'))->with('i',(request()->input('page',1) -1) *5);
+        $cidades = Cidade::all();
+        return view('clientes.index', compact('clientes','cidades'))->with('i',(request()->input('page',1) -1) *5);
     }
 
     public function create(){
-        return view('clientes.clienteCadastro');
+        $cidades = Cidade::all();
+        $estados = Uf::all();
+        return view('clientes.clienteCadastro', compact('cidades','estados'));
     }
 
     public function store(Request $request)
@@ -45,7 +50,7 @@ class clienteController extends Controller
             'cidade_id' => $request->get('cidade_id'),
         ]);
         $cliente->save();
-        return redirect()->route('clientes.index')->with('success','Post created successfully');
+        return redirect('/clientes')->with('success','CLIENTE CLIADO COM SUCESSO');
     }
 
     public function show($id)
@@ -57,7 +62,9 @@ class clienteController extends Controller
     public function edit($id)
     {
         $cliente = Cliente::find($id);
-        return view('clientes.edit', compact('cliente'));
+        $cidades = Cidade::all();
+        $estados = Uf::all();
+        return view('clientes.edit', compact('cliente','cidades','estados'));
     }
 
     public function update(Request $request, $id)
@@ -75,13 +82,13 @@ class clienteController extends Controller
         'cidade_id' => 'required',
       ]);
       Cliente::find($id)->update($request->all());
-      return redirect()->route('clientes.index')->with('success','Post updated successfully');
+      return redirect('/clientes')->with('success','CLIENTE ATUALIZADO COM SUCESSO');
     }
 
     public function destroy($id)
     {
         $cliente = Cliente::find($id);
         $cliente->delete();
-        return redirect()->route('clientes.index')->with('success','Post deleted successfully');
+        return redirect('/clientes')->with('success','CLIENTE DELETADO COM SUCESSO');
     }
 }

@@ -10,64 +10,66 @@
 </head>
 <body>
 <div class="container">
-<form method="POST" action="/clientes/cadastroClientes/store">
+<form method="POST" action="{{"/clientes/editarCliente/{$cliente->id}/update"}}">
 <input type="hidden" name="_token" value="{{csrf_token()}}">
     <div class="col-md-4 mb-3">
       <label for="validationCustom01">NOME COMPLETO</label>
-      <input type="text" class="form-control" id="validationCustom01" placeholder="NOME DO CLIENTE" name="nome" required>
+      <input type="text" class="form-control" id="validationCustom01" placeholder="NOME DO CLIENTE" name="nome" required value="{{$cliente->nome}}">
       <div class="valid-feedback">
         Looks good!
       </div>
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationCustom01">RG</label>
-      <input type="text" class="form-control" id="validationCustom01" placeholder="RG DO CLIENTE" name="rg" required>
+      <input type="text" class="form-control" id="validationCustom01" placeholder="RG DO CLIENTE" name="rg" required value="{{$cliente->rg}}">
       <div class="valid-feedback">
         Looks good!
       </div>
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationCustom01">CPF</label>
-      <input type="text" class="form-control" id="validationCustom01" placeholder="CPF DO CLIENTE" name="cpf" required>
+      <input type="text" class="form-control" id="validationCustom01" placeholder="CPF DO CLIENTE" name="cpf" required value="{{$cliente->cpf}}">
       <div class="valid-feedback">
         Looks good!
       </div>
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationCustom01">DATA DE NASCIMENTO</label>
-      <input type="date" class="form-control" id="validationCustom01" name="data_nascimento" required>
+      <input type="date" class="form-control" id="validationCustom01" name="data_nascimento" required value="{{$cliente->data_nascimento}}">
     </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">USUARIO</label>
-      <input type="text" class="form-control" id="inputEmail4" placeholder="SEU NOME DE USUARIO" name="usuario" required>
+      <input type="text" class="form-control" id="inputEmail4" placeholder="SEU NOME DE USUARIO" name="usuario" required value="{{$cliente->usuario}}">
       <div class="valid-feedback">
         Looks good!
       </div>
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">SENHA</label>
-      <input type="password" class="form-control" id="inputPassword4" placeholder="Password" name="pass" required>
+      <input type="text" class="form-control" id="inputPassword4" placeholder="Password" name="pass" required value="{{$cliente->pass}}">
     </div>
   </div>
   <div class="form-group">
     <label for="inputAddress">ENDEREÇO</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" name="endereco" required>
+    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" name="endereco" required value="{{$cliente->endereco}}">
   </div>
   <div class="form-group">
     <label for="inputAddress2">TELEFONE</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="TELEFONE 1" name="telefone_1" required>
+    <input type="text" class="form-control" id="inputAddress2" placeholder="TELEFONE 1" name="telefone_1" required value="{{$cliente->telefone_1}}">
   </div>
   <div class="form-group">
     <label for="inputAddress2">TELEFONE 2</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="TELEFONE 2" name="telefone_2" required>
+    <input type="text" class="form-control" id="inputAddress2" placeholder="TELEFONE 2" name="telefone_2" required value="{{$cliente->telefone_2}}">
   </div>
   <div class="form-row">
     <div class="form-group col-md-4">
       <label for="inputState">CIDADE</label>
       <select id="inputState" class="form-control" name="cidade_id">
-        <option selected>ESCOLHA A CIDADE...</option>
         @foreach ($cidades as $cidade)
+        @if ($cliente->cidade_id === $cidade->id)
+      <option selected label="Registrada: {{$cidade->nome}}">{{$cidade->id}}</option>
+        @endif
         <option label="{{$cidade->nome}}">{{$cidade->id}}</option>
         @endforeach
       </select>
@@ -81,13 +83,12 @@
         @endforeach
       </select>
     </div>
-  </div>
     <div class="form-group col-md-2">
       <label for="inputZip">FOTO</label>
       <input type="file" class="form-control" id="inputZip">
     </div>
   </div>
-  <button type="submit" class="btn btn-primary">CADASTRAR</button>
+  <button type="submit" class="btn btn-primary">ATUALIZAR</button>
   <a class="btn btn-primary" href="/clientes">VOLTAR</a>
 </form>
 </div>
