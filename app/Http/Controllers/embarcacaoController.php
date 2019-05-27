@@ -63,7 +63,7 @@ class embarcacaoController extends Controller
     public function show($id)
     {
         $embarcacao = Embarcacao::find($id);
-        return view('embarcacoes.show', compact('cliente'));
+        return view('embarcacoes.show', compact('embarcacao'));
     }
 
     public function edit($id)
@@ -90,7 +90,7 @@ class embarcacaoController extends Controller
         'valor_embarcacao' => 'required',
         'data_da_compra' => 'required',
       ]);
-      Cliente::find($id)->update($request->all());
+      Embarcacao::find($id)->update($request->all());
       return redirect('/embarcacoes')->with('success','EMBARCAÇÃO ATUALIZADO COM SUCESSO');
     }
 

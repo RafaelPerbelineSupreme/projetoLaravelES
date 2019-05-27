@@ -9,7 +9,6 @@ use App\Uf;
 
 class clienteController extends Controller
 {
-
     public function index()
     {
         $clientes = Cliente::latest()->paginate(5);
@@ -50,7 +49,7 @@ class clienteController extends Controller
             'cidade_id' => $request->get('cidade_id'),
         ]);
         $cliente->save();
-        return redirect('/clientes')->with('success','CLIENTE CLIADO COM SUCESSO');
+        return redirect('/clientes')->with('success','CLIENTE CRIADO COM SUCESSO');
     }
 
     public function show($id)
