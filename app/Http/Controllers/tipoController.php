@@ -14,7 +14,7 @@ class tipoController extends Controller
     }
 
     public function create(){
-        return view('pecas.pecaCadastro');
+        return view('tipos.tipoCadastro');
     }
 
     public function store(Request $request)
