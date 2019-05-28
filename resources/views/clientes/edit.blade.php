@@ -68,9 +68,10 @@
       <select id="inputState" class="form-control" name="cidade_id">
         @foreach ($cidades as $cidade)
         @if ($cliente->cidade_id === $cidade->id)
-      <option selected label="Registrada: {{$cidade->nome}}">{{$cidade->id}}</option>
-        @endif
+        <option selected label="Registrada: {{$cidade->nome}}">{{$cidade->id}}</option>
+        @else
         <option label="{{$cidade->nome}}">{{$cidade->id}}</option>
+        @endif
         @endforeach
       </select>
     </div>

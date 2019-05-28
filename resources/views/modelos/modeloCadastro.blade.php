@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <title>ATUALIZAÇÃO DE MODELOS</title>
+    <title>CADASTRO DE MODELOS</title>
 </head>
 <body>
 <div class="container">
-<form method="POST" action="{{"/modelos/editarModelo/{$modelo->id}/update"}}">
+<form method="POST" action="/modelos/cadastroModelos/store">
 <input type="hidden" name="_token" value="{{csrf_token()}}">
     <div class="col-md-4 mb-3">
       <label for="validationCustom01">NOME</label>
-    <input type="text" class="form-control" id="validationCustom01" placeholder="NOME DO MODELO" name="nome" required value="{{$modelo->nome}}">
+      <input type="text" class="form-control" id="validationCustom01" placeholder="NOME DO MODELO" name="nome" required>
       <div class="valid-feedback">
         Looks good!
       </div>
@@ -25,16 +25,12 @@
       <select id="inputState" class="form-control" name="marca_id">
         <option selected>ESCOLHA A MARCA...</option>
         @foreach ($marcas as $marca)
-        @if ($modelo->marca_id === $marca->id)
-        <option selected label="Registrada: {{$marca->nome}}">{{$marca->id}}</option>
-        @else
         <option label="{{$marca->nome}}">{{$marca->id}}</option>
-        @endif
         @endforeach
       </select>
     </div>
   </div>
-  <button type="submit" class="btn btn-primary">ATUALIZAR</button>
+  <button type="submit" class="btn btn-primary">CADASTRAR</button>
   <a class="btn btn-primary" href="/modelos">VOLTAR</a>
 </form>
 </div>
