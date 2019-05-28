@@ -20,7 +20,7 @@ class CreateEmbarcacaosTable extends Migration
             $table->unsignedBigInteger('tipo_id');
             $table->unsignedBigInteger('modelo_id');
             $table->string('identificacao');
-            $table->string('imagem');
+            $table->string('imagem')->nullable();
             $table->integer('ano');
             $table->float('valor_mensalidade');
             $table->string('descricao');

@@ -1,10 +1,10 @@
-@extends('clientes.clientesMaster')
+@extends('tipos.tiposMaster')
 
 @section('content')
   <div class="row">
     <div class="col-lg-12">
       <div class="pull-left">
-        <h1> CLIENTE: {{$cliente->nome}}</h1>
+        <h1> : {{$tipo->nome}}</h1>
       </div>
     </div>
   </div>
@@ -17,5 +17,5 @@
       </div>
     </div>
   </div>
-  <a class="btn btn-primary" href="/clientes">VOLTAR</a>
+  <a class="btn btn-primary" href="/tipos">VOLTAR</a>
 @endsection

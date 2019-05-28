@@ -17,7 +17,7 @@ class CreatePecasTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('fornecedor_id');
             $table->string('nome');
-            $table->string('imagem');
+            $table->string('imagem')->nullable();
             $table->integer('quantidade');
             $table->float('valor');
             $table->string('descricao');

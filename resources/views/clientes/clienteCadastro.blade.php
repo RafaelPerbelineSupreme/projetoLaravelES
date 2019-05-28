@@ -84,9 +84,8 @@
   </div>
     <div class="form-group col-md-2">
       <label for="inputZip">FOTO</label>
-      <input type="file" class="form-control" id="inputZip">
+      <input type="file" class="form-control" id="inputZip" name="imagem">
     </div>
-  </div>
   <button type="submit" class="btn btn-primary">CADASTRAR</button>
   <a class="btn btn-primary" href="/clientes">VOLTAR</a>
 </form>

@@ -18,7 +18,7 @@ class CreateFornecedorsTable extends Migration
             $table->integer('cnpj');
             $table->string('nome');
             $table->integer('inscricaoEstadual');
-            $table->string('imagem');
+            $table->string('imagem')->nullable();
             $table->string('endereco');
             $table->string('telefone_1');
             $table->string('telefone_2');

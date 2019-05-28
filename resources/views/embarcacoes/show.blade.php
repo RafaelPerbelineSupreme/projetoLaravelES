@@ -1,4 +1,4 @@
-@extends('clientes.clientesMaster')
+@extends('embarcacoes.embarcacoesMaster')
 
 @section('content')
   <div class="row">

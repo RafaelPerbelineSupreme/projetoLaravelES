@@ -35,7 +35,7 @@ Route::get('funcionarios/deletarFuncionario/{id}/destroy', 'funcionarioControlle
 
 //fornecedores
 Route::any('fornecedores', 'fornecedorController@index');
-Route::any('fornecedores/cadastroClientes', 'fornecedorController@create');
+Route::any('fornecedores/cadastroFornecedores', 'fornecedorController@create');
 Route::any('fornecedores/cadastroFornecedores/store', 'fornecedorController@store');
 Route::any('fornecedores/mostrarFornecedor/{id}/show', 'fornecedorController@show');
 Route::any('fornecedores/editarFornecedor/{id}/edit', 'fornecedorController@edit');

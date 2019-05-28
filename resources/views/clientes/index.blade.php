@@ -50,7 +50,6 @@
                 <td>{{ $cidade->nome }}</td>
             @endif
         @endforeach
-        <td><a class="btn btn-xs btn-info" href="{{"/clientes/mostrarCliente/{$cliente->id}/show"}}">MOSTRAR</a></td>
         <td><a class="btn btn-xs btn-primary" href="{{"/clientes/editarCliente/{$cliente->id}/edit"}}">EDITAR</a></td>
         <td><a class="btn btn-xs btn-danger" href="{{"/clientes/deletarCliente/{$cliente->id}/destroy"}}">DELETAR</a></td>
       </tr>

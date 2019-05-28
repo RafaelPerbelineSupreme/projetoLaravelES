@@ -1,15 +1,15 @@
-@extends('clientes.clientesMaster')
+@extends('embarcacoes.embarcacoesMaster')
 
 @section('content')
   <div class="row">
     <div class="col-lg-12">
-      <h3>CLIENTES CADASTRADOS</h3>
+      <h3>EMBARCAÇÕES CADASTRADOS</h3>
     </div>
   </div>
   <div class="row">
     <div class="col-sm-12">
       <div class="pull-right">
-        <a class="btn btn-xs btn-success" href="/clientes/cadastroClientes">CADASTRAR NOVO CLIENTE</a>
+        <a class="btn btn-xs btn-success" href="/embarcacoes/cadastroEmbarcacoes">CADASTRAR NOVA EMBARCAÇÃO</a>
       </div>
     </div>
   </div>
@@ -22,39 +22,53 @@
   <table class="table table-bordered">
     <tr style="background-color: black; color:white;">
       <th>Nº</th>
-      <th>NOME</th>
-      <th>USUARIO</th>
-      <th>RG</th>
-      <th>CPF</th>
-      <th>DATA DE NASCIMENTO</th>
-      <th>ENDEREÇO</th>
-      <th>TELEFONE 1</th>
-      <th>TELEFONE 2</th>
-      <th>CIDADE</th>
+      <th>IDENTIFICAÇÃO</th>
+      <th>ANO</th>
+      <th>VALOR DA MENSALIDADE</th>
+      <th>DESCRIÇÃO</th>
+      <th>VALOR DA EMBARCAÇÃO</th>
+      <th>DATA DA COMPRA</th>
+      <th>FUNCIONARIO</th>
+      <th>CLIENTE</th>
+      <th>TIPO</th>
+      <th>MODELO</th>
       <th colspan="3" class="text-center">AÇÕES</th>
     </tr>
 
-    @foreach ($clientes as $cliente)
+    @foreach ($embarcacoes as $embarcacao)
       <tr>
-        <td>{{ $cliente->id }}</td>
-        <td>{{ $cliente->nome }}</td>
-        <td>{{ $cliente->usuario }}</td>
-        <td>{{ $cliente->rg }}</td>
-        <td>{{ $cliente->cpf }}</td>
-        <td>{{ $cliente->data_nascimento }}</td>
-        <td>{{ $cliente->endereco }}</td>
-        <td>{{ $cliente->telefone_1 }}</td>
-        <td>{{ $cliente->telefone_2 }}</td>
-        @foreach ($cidades as $cidade)
-            @if ($cidade->id === $cliente->cidade_id)
-                <td>{{ $cidade->nome }}</td>
+        <td>{{ $embarcacao->id }}</td>
+        <td>{{ $embarcacao->identificacao }}</td>
+        <td>{{ $embarcacao->ano }}</td>
+        <td>{{ $embarcacao->valor_mensalidade }}</td>
+        <td>{{ $embarcacao->descricao }}</td>
+        <td>{{ $embarcacao->valor_embarcacao }}</td>
+        <td>{{ $embarcacao->data_da_compra }}</td>
+        @foreach ($funcionarios as $funcionario)
+            @if ($funcionario->id === $embarcacao->funcionario_id)
+                <td>{{ $funcionario->nome }}</td>
             @endif
         @endforeach
-        <td><a class="btn btn-xs btn-info" href="{{"/clientes/mostrarCliente/{$cliente->id}/show"}}">MOSTRAR</a></td>
-        <td><a class="btn btn-xs btn-primary" href="{{"/clientes/editarCliente/{$cliente->id}/edit"}}">EDITAR</a></td>
-        <td><a class="btn btn-xs btn-danger" href="{{"/clientes/deletarCliente/{$cliente->id}/destroy"}}">DELETAR</a></td>
+        @foreach ($clientes as $cliente)
+            @if ($cliente->id === $embarcacao->cliente_id)
+                <td>{{ $cliente->nome }}</td>
+            @endif
+        @endforeach
+        @foreach ($tipos as $tipo)
+            @if ($tipo->id === $embarcacao->tipo_id)
+                <td>{{ $tipo->nome }}</td>
+            @endif
+        @endforeach
+        @foreach ($modelos as $modelo)
+            @if ($modelo->id === $embarcacao->modelo_id)
+                <td>{{ $embarcacao->nome }}</td>
+            @endif
+        @endforeach
+        <td><a class="btn btn-xs btn-info" href="{{"/embarcacoes/mostrarEmbarcacao/{$embarcacao->id}/show"}}">MOSTRAR</a></td>
+        <td><a class="btn btn-xs btn-primary" href="{{"/embarcacoes/editarEmbarcacao/{$embarcacao->id}/edit"}}">EDITAR</a></td>
+        <td><a class="btn btn-xs btn-danger" href="{{"/embarcacoes/deletarEmbarcacao/{$embarcacao->id}/destroy"}}">DELETAR</a></td>
       </tr>
     @endforeach
   </table>
-  {!! $clientes->links() !!}
+  {!! $embarcacoes->links() !!}
 @endsection

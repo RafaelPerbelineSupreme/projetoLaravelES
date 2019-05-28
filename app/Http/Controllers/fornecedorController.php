@@ -28,8 +28,8 @@ class fornecedorController extends Controller
             'telefone_2' => 'required',
         ]);
         $fornecedor = new Fornecedor([
-            'cnpj' => $request->get('nome'),
-            'nome' => $request->get('rg'),
+            'cnpj' => $request->get('cnpj'),
+            'nome' => $request->get('nome'),
             'inscricaoEstadual' => $request->get('inscricaoEstadual'),
             'endereco' => $request->get('endereco'),
             'telefone_1' => $request->get('telefone_1'),
