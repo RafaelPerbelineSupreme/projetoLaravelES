@@ -25,7 +25,7 @@ Route::any('clientes/editarCliente/{id}/update', 'clienteController@update');
 Route::get('clientes/deletarCliente/{id}/destroy', 'clienteController@destroy');
 
 //funcionarios
-Route::any('funcionarios', 'clienteController@index');
+Route::any('funcionarios', 'funcionarioController@index');
 Route::any('funcionarios/cadastroFuncionarios', 'funcionarioController@create');
 Route::any('funcionarios/cadastroFuncionarios/store', 'funcionarioController@store');
 Route::any('funcionarios/mostrarFuncionario/{id}/show', 'funcionarioController@show');

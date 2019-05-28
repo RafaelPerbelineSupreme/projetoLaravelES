@@ -49,7 +49,7 @@ class funcionarioController extends Controller
             'cidade_id' => $request->get('cidade_id'),
         ]);
         $funcionario->save();
-        return redirect('/funcionarios')->with('success','CLIENTE CRIADO COM SUCESSO');
+        return redirect('/funcionarios')->with('success','FUNCIONARIO CRIADO COM SUCESSO');
     }
 
     public function show($id)
@@ -88,6 +88,6 @@ class funcionarioController extends Controller
     {
         $funcionario = Funcionario::find($id);
         $funcionario->delete();
-        return redirect('/clientes')->with('success','FUNCIONARIO DELETADO COM SUCESSO');
+        return redirect('/funcionarios')->with('success','FUNCIONARIO DELETADO COM SUCESSO');
     }
 }

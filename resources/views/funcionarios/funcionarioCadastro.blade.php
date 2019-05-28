@@ -6,29 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <title>CADASTRO DE CLIENTES</title>
+    <title>CADASTRO DE FUNCIONARIOS</title>
 </head>
 <body>
 <div class="container">
-<form method="POST" action="/clientes/cadastroClientes/store">
+<form method="POST" action="/funcionarios/cadastroFuncionarios/store">
 <input type="hidden" name="_token" value="{{csrf_token()}}">
     <div class="col-md-4 mb-3">
       <label for="validationCustom01">NOME COMPLETO</label>
-      <input type="text" class="form-control" id="validationCustom01" placeholder="NOME DO CLIENTE" name="nome" required>
+      <input type="text" class="form-control" id="validationCustom01" placeholder="NOME DO FUNCIONARIO" name="nome" required>
       <div class="valid-feedback">
         Looks good!
       </div>
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationCustom01">RG</label>
-      <input type="text" class="form-control" id="validationCustom01" placeholder="RG DO CLIENTE" name="rg" required>
+      <input type="text" class="form-control" id="validationCustom01" placeholder="RG DO FUNCIONARIO" name="rg" required>
       <div class="valid-feedback">
         Looks good!
       </div>
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationCustom01">CPF</label>
-      <input type="text" class="form-control" id="validationCustom01" placeholder="CPF DO CLIENTE" name="cpf" required>
+      <input type="text" class="form-control" id="validationCustom01" placeholder="CPF DO FUNCIONARIO" name="cpf" required>
       <div class="valid-feedback">
         Looks good!
       </div>
@@ -84,11 +84,10 @@
   </div>
     <div class="form-group col-md-2">
       <label for="inputZip">FOTO</label>
-      <input type="file" class="form-control" id="inputZip">
+      <input type="file" class="form-control" id="inputZip" name="image">
     </div>
-  </div>
   <button type="submit" class="btn btn-primary">CADASTRAR</button>
-  <a class="btn btn-primary" href="/clientes">VOLTAR</a>
+  <a class="btn btn-primary" href="/funcionarios">VOLTAR</a>
 </form>
 </div>
 </body>

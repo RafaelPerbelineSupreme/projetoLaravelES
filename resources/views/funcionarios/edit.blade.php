@@ -6,71 +6,72 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <title>CADASTRO DE CLIENTES</title>
+    <title>ATUALIZAÇÃO DE FUNCIONARIOS</title>
 </head>
 <body>
 <div class="container">
-<form method="POST" action="{{"/clientes/editarCliente/{$cliente->id}/update"}}">
+<form method="POST" action="{{"/funcionarios/editarFuncionario/{$funcionario->id}/update"}}">
 <input type="hidden" name="_token" value="{{csrf_token()}}">
     <div class="col-md-4 mb-3">
       <label for="validationCustom01">NOME COMPLETO</label>
-      <input type="text" class="form-control" id="validationCustom01" placeholder="NOME DO CLIENTE" name="nome" required value="{{$cliente->nome}}">
+      <input type="text" class="form-control" id="validationCustom01" placeholder="NOME DO FUNCIONARIO" name="nome" required value="{{$funcionario->nome}}">
       <div class="valid-feedback">
         Looks good!
       </div>
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationCustom01">RG</label>
-      <input type="text" class="form-control" id="validationCustom01" placeholder="RG DO CLIENTE" name="rg" required value="{{$cliente->rg}}">
+      <input type="text" class="form-control" id="validationCustom01" placeholder="RG DO FUNCIONARIO" name="rg" required value="{{$funcionario->rg}}">
       <div class="valid-feedback">
         Looks good!
       </div>
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationCustom01">CPF</label>
-      <input type="text" class="form-control" id="validationCustom01" placeholder="CPF DO CLIENTE" name="cpf" required value="{{$cliente->cpf}}">
+      <input type="text" class="form-control" id="validationCustom01" placeholder="CPF DO FUNCIONARIO" name="cpf" required value="{{$funcionario->cpf}}">
       <div class="valid-feedback">
         Looks good!
       </div>
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationCustom01">DATA DE NASCIMENTO</label>
-      <input type="date" class="form-control" id="validationCustom01" name="data_nascimento" required value="{{$cliente->data_nascimento}}">
+      <input type="date" class="form-control" id="validationCustom01" name="data_nascimento" required value="{{$funcionario->data_nascimento}}">
     </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">USUARIO</label>
-      <input type="text" class="form-control" id="inputEmail4" placeholder="SEU NOME DE USUARIO" name="usuario" required value="{{$cliente->usuario}}">
+      <input type="text" class="form-control" id="inputEmail4" placeholder="SEU NOME DE USUARIO" name="usuario" required value="{{$funcionario->usuario}}">
       <div class="valid-feedback">
         Looks good!
       </div>
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">SENHA</label>
-      <input type="text" class="form-control" id="inputPassword4" placeholder="Password" name="pass" required value="{{$cliente->pass}}">
+      <input type="text" class="form-control" id="inputPassword4" placeholder="Password" name="pass" required value="{{$funcionario->pass}}">
     </div>
   </div>
   <div class="form-group">
     <label for="inputAddress">ENDEREÇO</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" name="endereco" required value="{{$cliente->endereco}}">
+    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" name="endereco" required value="{{$funcionario->endereco}}">
   </div>
   <div class="form-group">
     <label for="inputAddress2">TELEFONE</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="TELEFONE 1" name="telefone_1" required value="{{$cliente->telefone_1}}">
+    <input type="text" class="form-control" id="inputAddress2" placeholder="TELEFONE 1" name="telefone_1" required value="{{$funcionario->telefone_1}}">
   </div>
   <div class="form-group">
     <label for="inputAddress2">TELEFONE 2</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="TELEFONE 2" name="telefone_2" required value="{{$cliente->telefone_2}}">
+    <input type="text" class="form-control" id="inputAddress2" placeholder="TELEFONE 2" name="telefone_2" required value="{{$funcionario->telefone_2}}">
   </div>
   <div class="form-row">
     <div class="form-group col-md-4">
       <label for="inputState">CIDADE</label>
       <select id="inputState" class="form-control" name="cidade_id">
         @foreach ($cidades as $cidade)
-        @if ($cliente->cidade_id === $cidade->id)
-      <option selected label="Registrada: {{$cidade->nome}}">{{$cidade->id}}</option>
-        @endif
+        @if ($funcionario->cidade_id === $cidade->id)
+        <option selected label="Registrada: {{$cidade->nome}}">{{$cidade->id}}</option>
+        @else
         <option label="{{$cidade->nome}}">{{$cidade->id}}</option>
+        @endif
         @endforeach
       </select>
     </div>
@@ -85,11 +86,11 @@
     </div>
     <div class="form-group col-md-2">
       <label for="inputZip">FOTO</label>
-      <input type="file" class="form-control" id="inputZip">
+      <input type="file" class="form-control" id="inputZip" name="image">
     </div>
   </div>
   <button type="submit" class="btn btn-primary">ATUALIZAR</button>
-  <a class="btn btn-primary" href="/clientes">VOLTAR</a>
+  <a class="btn btn-primary" href="/funcionarios">VOLTAR</a>
 </form>
 </div>
 </body>
