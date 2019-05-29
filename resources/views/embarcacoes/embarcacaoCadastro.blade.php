@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <title>CADASTRO DE CLIENTES</title>
+    <title>CADASTRO DE EMBARCAÇÕES</title>
 </head>
 <body>
 <div class="container">
@@ -54,9 +54,9 @@
     <div class="form-group col-md-4">
       <label for="inputState">FUNCIONARIO</label>
       <select id="inputState" class="form-control" name="funcionario_id">
-        <option selected>ESCOLHA UM FUNCIONARIO...</option>
-        @foreach ($funcionarios as $funcionarrio)
-        <option label="{{$funcionarrio->nome}}">{{$funcionarrio->id}}</option>
+        <option selected label="ESCOLHA UM FUNCIONARIO..."></option>
+        @foreach ($funcionarios as $funcionario)
+        <option label="{{$funcionario->nome}}">{{$funcionario->id}}</option>
         @endforeach
       </select>
     </div>
@@ -72,7 +72,7 @@
     <div class="form-group col-md-4">
       <label for="inputState">TIPO</label>
       <select id="inputState" class="form-control" name="tipo_id">
-        <option selected>ESCOLHA UM TIPO...</option>
+      <option selected>ESCOLHA UM TIPO...</option>
         @foreach ($tipos as $tipo)
             <option label="{{$tipo->nome}}">{{$tipo->id}}</option>
         @endforeach
@@ -92,9 +92,8 @@
       <label for="inputZip">FOTO</label>
       <input type="file" class="form-control" id="inputZip" name="imagem">
     </div>
-  </div>
   <button type="submit" class="btn btn-primary">CADASTRAR</button>
-  <a class="btn btn-primary" href="/clientes">VOLTAR</a>
+  <a class="btn btn-primary" href="/embarcacoes">VOLTAR</a>
 </form>
 </div>
 </body>

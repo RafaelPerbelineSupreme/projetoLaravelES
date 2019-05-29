@@ -33,7 +33,7 @@ class embarcacaoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-          'funcionario_id' => 'required',
+          'funcionario_id' => '',
           'cliente_id' => 'required',
           'tipo_id' => 'required',
           'modelo_id' => 'required',
@@ -68,18 +68,18 @@ class embarcacaoController extends Controller
 
     public function edit($id)
     {
-        $embarcacoes = Embarcacao::latest()->paginate(5);
+        $embarcacao = Embarcacao::find($id);
         $tipos = Tipo::all();
         $modelos = Modelo::all();
         $funcionarios = Funcionario::all();
         $clientes = Cliente::all();
-        return view('embarcacoes.edit', compact('embarcacoes','tipos','modelos','funcionarios','clientes'));
+        return view('embarcacoes.edit', compact('embarcacao','tipos','modelos','funcionarios','clientes'));
     }
 
     public function update(Request $request, $id)
     {
       request()->validate([
-        'funcionario_id' => 'required',
+        'funcionario_id' => '',
         'cliente_id' => 'required',
         'tipo_id' => 'required',
         'modelo_id' => 'required',

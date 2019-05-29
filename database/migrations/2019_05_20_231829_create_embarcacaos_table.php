@@ -15,7 +15,7 @@ class CreateEmbarcacaosTable extends Migration
     {
         Schema::create('embarcacaos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('funcionario_id');
+            $table->unsignedBigInteger('funcionario_id')->nullable();
             $table->unsignedBigInteger('cliente_id');
             $table->unsignedBigInteger('tipo_id');
             $table->unsignedBigInteger('modelo_id');

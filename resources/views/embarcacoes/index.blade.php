@@ -44,6 +44,9 @@
         <td>{{ $embarcacao->descricao }}</td>
         <td>{{ $embarcacao->valor_embarcacao }}</td>
         <td>{{ $embarcacao->data_da_compra }}</td>
+        @if (is_null($embarcacao->funcionario_id))
+            <td></td>
+        @endif
         @foreach ($funcionarios as $funcionario)
             @if ($funcionario->id === $embarcacao->funcionario_id)
                 <td>{{ $funcionario->nome }}</td>
@@ -64,7 +67,6 @@
                 <td>{{ $embarcacao->nome }}</td>
             @endif
         @endforeach
-        <td><a class="btn btn-xs btn-info" href="{{"/embarcacoes/mostrarEmbarcacao/{$embarcacao->id}/show"}}">MOSTRAR</a></td>
         <td><a class="btn btn-xs btn-primary" href="{{"/embarcacoes/editarEmbarcacao/{$embarcacao->id}/edit"}}">EDITAR</a></td>
         <td><a class="btn btn-xs btn-danger" href="{{"/embarcacoes/deletarEmbarcacao/{$embarcacao->id}/destroy"}}">DELETAR</a></td>
       </tr>

@@ -16,6 +16,7 @@ class CreateUfsTable extends Migration
         Schema::create('ufs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nome');
+            $table->string('sigla');
             $table->timestamps();
         });
     }
