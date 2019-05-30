@@ -64,7 +64,7 @@
         @endforeach
         @foreach ($modelos as $modelo)
             @if ($modelo->id === $embarcacao->modelo_id)
-                <td>{{ $embarcacao->nome }}</td>
+                <td>{{ $modelo->nome }}</td>
             @endif
         @endforeach
         <td><a class="btn btn-xs btn-primary" href="{{"/embarcacoes/editarEmbarcacao/{$embarcacao->id}/edit"}}">EDITAR</a></td>
